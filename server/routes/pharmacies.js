@@ -1,9 +1,7 @@
 import express from "express";
-
+import  { getPharmacies } from "../controllers/pharmacies.js"
 const router = express.Router();
 
-router.get("/", (req,res) => {
-    res.send("I am pharmacies router")
-});
+router.get("/",getPharmacies);
 
 export default router;
