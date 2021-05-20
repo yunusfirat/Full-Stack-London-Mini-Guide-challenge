@@ -1,7 +1,12 @@
 import express from "express";
-import  { getPharmacies, createPharmacies } from "../controllers/pharmacies.js"
+import  { getPharmacies, getPharmaciesForEachCity  } from "../controllers/pharmacies.js"
 const router = express.Router();
 
 router.get("/", getPharmacies);
-router.post("/", createPharmacies);
+
+
+router.get("/:city/pharmacies", getPharmaciesForEachCity)
+
+
+
 export default router;

@@ -18,6 +18,7 @@ app.use("/hospitals", hospitalRoutes);
 app.use("/colleges", collegeRoutes);
 app.use("/doctors", doctorRoutes);
 
+app.use("/",pharmacieRoutes);
 
 
 
