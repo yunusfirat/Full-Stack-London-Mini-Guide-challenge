@@ -1,5 +1,3 @@
-// const file = "../data/Harrow.json"
-
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const dataHarrow = require("../data/Harrow.json");
@@ -14,7 +12,6 @@ export const getPharmacies = (req, res) => {
 
 export const getPharmaciesForEachCity = (req,res) => {
     const city = req.params.city;
-    console.log(city);
     if(city === "harrow"){
         res.json(dataHarrow.pharmacies)
     }
