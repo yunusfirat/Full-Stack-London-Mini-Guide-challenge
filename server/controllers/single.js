@@ -1,10 +1,9 @@
 import { createRequire } from "module";
-import uuid from "uuid"
 const require = createRequire(import.meta.url);
 const dataHarrow = require("../data/Harrow.json");
 const dataHeathrow = require("../data/Heathrow.json");
 const dataStratford = require("../data/Stratford.json");
-
+const uuid = require("uuid");
 //  get request
 export const category = (req,res) => {
     const city = req.params.city;
