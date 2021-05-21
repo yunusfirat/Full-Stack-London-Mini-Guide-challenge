@@ -1,13 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useCallback, useEffect } from "react";
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
     const [changeParam, setChangeParam] = useState("");
     const [buttonParam, setButtonParam] = useState("");
+    const [category, setCategory] = useState([]);
+const fetchData = useCallback( async () => {
+    if(changeParam && buttonParam){
+        const url = `http://localhost:5000/${changeParam}/${buttonParam}`;
+        try {
+            fetch(url)
+            .then((response) => response.json())
+            .then((data) => setCategory(data));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+},[changeParam,buttonParam]);
+
+useEffect(()=> {
+    fetchData();
+},[changeParam,buttonParam,fetchData]);
+
     return (
         <AppContext.Provider
-        value={{ changeParam, buttonParam, setButtonParam, setChangeParam }}>
+        value={{ setButtonParam, setChangeParam, category }}>
             {children}
         </AppContext.Provider>
     );
