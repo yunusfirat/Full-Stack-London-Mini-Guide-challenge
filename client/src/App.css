@@ -61,3 +61,14 @@ hr {
 .dropdown {
     text-align: left;
 }
+
+li {
+    margin: 10px;
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    color: black;
+}
+
+.nav-link {
+    color: black;
+}
