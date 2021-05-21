@@ -14,11 +14,16 @@ app.use(cors());
 const PORT =  process.env.PORT || 5000;
 
 app.use("/pharmacies", pharmacieRoutes);
-app.use("/hospitals", hospitalRoutes);
-app.use("/colleges", collegeRoutes);
-app.use("/doctors", doctorRoutes);
-
 app.use("/",pharmacieRoutes);
+
+app.use("/hospitals", hospitalRoutes);
+app.use("/", hospitalRoutes);
+
+app.use("/colleges", collegeRoutes);
+app.use("/", collegeRoutes);
+
+app.use("/doctors", doctorRoutes);
+app.use("/",doctorRoutes)
 
 
 
