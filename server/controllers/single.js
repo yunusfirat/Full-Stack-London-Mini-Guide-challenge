@@ -1,9 +1,11 @@
 import { createRequire } from "module";
+import uuid from "uuid"
 const require = createRequire(import.meta.url);
 const dataHarrow = require("../data/Harrow.json");
 const dataHeathrow = require("../data/Heathrow.json");
 const dataStratford = require("../data/Stratford.json");
 
+//  get request
 export const category = (req,res) => {
     const city = req.params.city;
     const category = req.params.category;
@@ -44,4 +46,27 @@ export const category = (req,res) => {
         res.json(dataStratford.colleges)
     }
 
+}
+
+// create new Data
+export const addnewdata =  (req, res) => {
+    const city = req.params.city;
+    const newData = {
+        id: uuid.v4(),
+        name: req.body.name,
+        website: req.body.email,
+        email: req.body.email,
+        address: req.body.address
+    }
+
+    if(!newData.name || !newData.email || !newData.website || !newData.address){
+        return res.status(400).json({ msg: "please make sure that you have added name, email, address and website."})
+    }if(city === "harrow"){
+        dataHarrow.push(newData);
+    }if(city === "heathrow"){
+        dataHeathrow.push(newData);
+    }if(city === "stratford"){
+        dataStratford.push(newData);
+    }
+    res.redirect("/");
 }
