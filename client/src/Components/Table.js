@@ -3,7 +3,6 @@ import { useGlobalContext } from "./Context";
 
 const Table = () => {
     const { category } = useGlobalContext();
-    console.log(category);
     return (
         <div className="mt-4">
             <table className="table table-striped">
@@ -13,10 +12,11 @@ const Table = () => {
                     <th scope="col" style={{ width: "25%" }}>Name</th>
                     <th scope="col" style={{ width: "20%" }}>Phone</th>
                     <th scope="col" style={{ width: "20%" }}>Address</th>
-                    <th scope="col" style={{ width: "25%" }}>website</th></tr>
+                    <th scope="col" style={{ width: "25%" }}>website</th>
+                </tr>
                 </thead>
                 <tbody>
-                    {category.map((element,index) => {
+                    {category.length> 0 ? category.map((element,index) => {
                         const { name, website, address, phone } =element;
                         return(
                         <tr key={index}>
@@ -27,7 +27,13 @@ const Table = () => {
                             <td><a href={website} rel="noreferrer" target="_blank" >{name}</a></td>
                         </tr>
                         );
-                    })}
+                    }) : <tr>
+                        <td colSpan="5"><h3 className="text-center"> choose a city and category first </h3></td>
+                        </tr>
+                }
+
+
+
                 </tbody>
             </table>
         </div>
