@@ -4,15 +4,5 @@ const router = express.Router();
 
 
 router.get("/:city/:category", category)
-
-
-
 router.post("/", addnewdata)
-
-
-
-
-
-
-
 export default router;

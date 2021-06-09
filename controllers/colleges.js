@@ -4,7 +4,6 @@ const dataHarrow = require("../data/Harrow.json");
 const dataHeathrow = require("../data/Heathrow.json");
 const dataStratford = require("../data/Stratford.json");
 
-
 export const getColleges = (req, res) => {
     res.json(dataStratford.colleges);
 }
