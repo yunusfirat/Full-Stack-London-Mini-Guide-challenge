@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
     const [category, setCategory] = useState([]);
 const fetchData = useCallback( async () => {
     if(changeParam && buttonParam){
-        const url = `http://localhost:5000/${changeParam}/${buttonParam}`;
+        const url = `/${changeParam}/${buttonParam}`;
         try {
             fetch(url)
             .then((response) => response.json())
